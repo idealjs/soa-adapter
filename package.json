@@ -1,0 +1,23 @@
+{
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "examples/*",
+    "apps/*"
+  ],
+  "repository": "git@github.com:idealjs/mono-template.git",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint packages/**/*.{tsx,ts} examples/**/*.{tsx,ts} --fix"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.3.10",
+    "lerna": "^8.2.4",
+    "lodash": "^4.17.21",
+    "prettier": "^3.6.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  },
+  "packageManager": "yarn@4.0.2"
+}

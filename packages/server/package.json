@@ -1,0 +1,23 @@
+{
+  "name": "@idealjs/mono-template-server",
+  "version": "0.1.0",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "prepack": "rimraf dist && yarn build",
+    "generate:dev": "openssl req -x509 -newkey rsa:2048 -nodes -sha256 -subj '/CN=localhost' -addext 'subjectAltName = DNS.1:localhost' -keyout server.key -out server.crt"
+  },
+  "dependencies": {
+    "@idealjs/mono-template-core": "workspace:*",
+    "fastify": "^5.5.0",
+    "rimraf": "^6.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.18.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.4"
+  }
+}

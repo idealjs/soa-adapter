@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "EditorConfig.EditorConfig",
+    "mhutchie.git-graph",
+    "eamodio.gitlens",
+    "biomejs.biome",
+    "prettier.prettier-vscode"
+  ]
+}
