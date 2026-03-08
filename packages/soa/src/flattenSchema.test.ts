@@ -132,4 +132,26 @@ describe("flattenSchema", () => {
       },
     ]);
   });
+
+  it("should flatten array as root", () => {
+    const schema = z.array(
+      z.object({
+        id: z.number(),
+        name: z.string(),
+      }),
+    );
+
+    const result = flattenSchema(schema);
+
+    expect(result).toEqual([
+      {
+        path: ["$", "id"],
+        requirements: { type: "number" },
+      },
+      {
+        path: ["$", "name"],
+        requirements: { type: "string", maxLength: null },
+      },
+    ]);
+  });
 });
