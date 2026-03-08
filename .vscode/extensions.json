@@ -4,6 +4,6 @@
     "mhutchie.git-graph",
     "eamodio.gitlens",
     "biomejs.biome",
-    "prettier.prettier-vscode"
+    "esbenp.prettier-vscode"
   ]
 }

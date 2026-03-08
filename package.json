@@ -9,7 +9,8 @@
   "repository": "git@github.com:idealjs/mono-template.git",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint packages/**/*.{tsx,ts} examples/**/*.{tsx,ts} --fix"
+    "lint": "eslint packages/**/*.{tsx,ts} examples/**/*.{tsx,ts} --fix",
+    "format": "biome format --write ."
   },
   "devDependencies": {
     "@biomejs/biome": "2.3.10",
