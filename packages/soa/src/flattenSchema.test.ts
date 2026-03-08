@@ -12,7 +12,7 @@ describe("flattenSchema", () => {
     const result = flattenSchema(schema);
 
     expect(result).toEqual([
-      { path: ["name"], requirements: { type: "string" } },
+      { path: ["name"], requirements: { type: "string", maxLength: null } },
       { path: ["age"], requirements: { type: "number" } },
     ]);
   });
@@ -55,7 +55,7 @@ describe("flattenSchema", () => {
       },
       {
         path: ["users", "$", "name"],
-        requirements: { type: "string" },
+        requirements: { type: "string", maxLength: null },
       },
     ]);
   });
@@ -70,7 +70,7 @@ describe("flattenSchema", () => {
     expect(result).toEqual([
       {
         path: ["tags", "$"],
-        requirements: { type: "string" },
+        requirements: { type: "string", maxLength: null },
       },
     ]);
   });
@@ -95,7 +95,7 @@ describe("flattenSchema", () => {
     expect(result).toEqual([
       {
         path: ["departments", "$", "name"],
-        requirements: { type: "string" },
+        requirements: { type: "string", maxLength: null },
       },
       {
         path: ["departments", "$", "employees", "$", "id"],
@@ -103,7 +103,32 @@ describe("flattenSchema", () => {
       },
       {
         path: ["departments", "$", "employees", "$", "skills", "$"],
-        requirements: { type: "string" },
+        requirements: { type: "string", maxLength: null },
+      },
+    ]);
+  });
+
+  it("should include maxLength requirement for string schema", () => {
+    const schema = z.object({
+      title: z.string().max(10),
+      description: z.string().max(100),
+      code: z.string().length(8),
+    });
+
+    const result = flattenSchema(schema);
+
+    expect(result).toEqual([
+      {
+        path: ["title"],
+        requirements: { type: "string", maxLength: 10 },
+      },
+      {
+        path: ["description"],
+        requirements: { type: "string", maxLength: 100 },
+      },
+      {
+        path: ["code"],
+        requirements: { type: "string", maxLength: 8 },
       },
     ]);
   });
