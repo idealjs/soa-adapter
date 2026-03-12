@@ -1,1 +1,1 @@
-export * from "./flattenSchema";
+export * from "./adapter";
