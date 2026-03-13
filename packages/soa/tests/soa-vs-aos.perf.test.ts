@@ -219,12 +219,12 @@ describe("SoA vs Array-of-Structs performance", () => {
     const events = createLogisticsEvents(DATA_SIZE);
 
     const aosResult = benchmark(
-      "Array-of-Structs",
+      "Array of Structs",
       () => createAoSState(events),
       (state) => runAoSLoop(state, ITERATIONS),
     );
     const soaResult = benchmark(
-      "SoA",
+      "Struct of Array",
       () => createSoAState(events),
       (state) => runSoALoop(state, ITERATIONS),
     );
